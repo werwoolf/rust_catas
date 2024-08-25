@@ -1,60 +1,100 @@
-fn main() {
-    let example_arr = &[
-        vec![1, 0, 2, 0, 2, 1],
-        vec![1, 0, 2, 1, 5, 7],
-        vec![4, 1, 1, 0, 1, 9]
-    ];
-    let res = connected_values(example_arr, 2, (0, 2));
+mod codewars_catas;
 
-    println!("{:?}", res);
+struct BigInt {
+    digits: Vec<u32>, // Store digits in reverse order, least significant digit first
 }
 
-fn connected_values(arr: &[Vec<u8>], val: u8, coord: (usize, usize)) -> Vec<(usize, usize)> {
-    let mut response = Vec::new();
-    let val_in_coord = arr[coord.0][coord.1];
-
-    let is_matched_value = val == val_in_coord;
-
-    if !is_matched_value {
-        return response;
+impl BigInt {
+    // Create a BigInt from a string
+    fn from_str(value: &str) -> BigInt {
+        let mut digits = Vec::new();
+        for chunk in value.chars().rev().collect::<Vec<char>>().chunks(9) {
+            let s: String = chunk.iter().rev().collect();
+            digits.push(s.parse::<u32>().unwrap());
+        }
+        BigInt { digits }
     }
 
-    for row in 0..arr.len() {
-        for column in 0..arr[0].len() {
-            let is_init_val = row == coord.0 && column == coord.1;
-            if is_init_val {
-                response.push((row, column));
-                continue;
+    // Multiply two BigInts
+    fn mul(&self, other: &BigInt) -> BigInt {
+        let mut result = vec![0u64; self.digits.len() + other.digits.len()];
+        for (i, &a) in self.digits.iter().enumerate() {
+            let mut carry = 0u64;
+            for (j, &b) in other.digits.iter().enumerate() {
+                let idx = i + j;
+                let sum = result[idx] + (a as u64) * (b as u64) + carry;
+                result[idx] = sum % 1_000_000_000;
+                carry = sum / 1_000_000_000;
             }
+            if carry > 0 {
+                result[i + other.digits.len()] += carry;
+            }
+        }
 
-            let is_match_value = arr[row][column] == val;
+        // Trim leading zeros
+        while result.len() > 1 && *result.last().unwrap() == 0 {
+            result.pop();
+        }
 
-            if !is_match_value {
-                continue;
-            };
-
-            let neighboring_coordinates = vec![
-                (row as isize - 1, column as isize - 1),
-                (row as isize - 1, column as isize),
-                (row as isize - 1, column as isize + 1),
-                (row as isize, column as isize - 1),
-                (row as isize, column as isize + 1),
-                (row as isize + 1, column as isize - 1),
-                (row as isize + 1, column as isize),
-                (row as isize + 1, column as isize + 1),
-            ];
-
-            let filtered_neighborhoods = neighboring_coordinates
-                .into_iter()
-                .filter(|(row, column)| (*row > -1 && *row < arr.len() as isize) && (*column > -1 && *column < arr[1].len() as isize))
-                .collect();
-
-            println!("{:?}", filtered_neighborhoods);
-
-            response.push((row, column));
+        BigInt {
+            digits: result.iter().map(|&x| x as u32).collect(),
         }
     }
 
-    response
+    // Exponentiation by squaring
+    fn pow(&self, exp: &BigInt) -> BigInt {
+        let mut base = self.clone();
+        let mut exponent = exp.clone();
+        let mut result = BigInt::from_str("1");
+
+        while !exponent.is_zero() {
+            if exponent.is_odd() {
+                result = result.mul(&base);
+            }
+            base = base.mul(&base);
+            // exponent = &exponent.div_by_two();
+        }
+
+        result
+    }
+
+    // Check if BigInt is zero
+    fn is_zero(&self) -> bool {
+        self.digits.len() == 1 && self.digits[0] == 0
+    }
+
+    // Check if BigInt is odd
+    fn is_odd(&self) -> bool {
+        self.digits[0] % 2 != 0
+    }
+
+    // Divide BigInt by 2
+    fn div_by_two(&self) -> BigInt {
+        let mut result = Vec::new();
+        let mut carry = 0u64;
+
+        for &digit in self.digits.iter().rev() {
+            let num = carry * 1_000_000_000 + digit as u64;
+            result.push((num / 2) as u32);
+            carry = num % 2;
+        }
+
+        result.reverse();
+        while result.len() > 1 && *result.last().unwrap() == 0 {
+            result.pop();
+        }
+
+        BigInt { digits: result }
+    }
 }
 
+fn main() {
+    println!("////////{}", last_digit_big_number("33", "5"));
+}
+
+fn last_digit_big_number(str1: &str, str2: &str) -> i128 {
+    let parsed1 = str1.parse::<i128>().unwrap();
+    let parsed2 = str2.parse::<i128>().unwrap();
+
+    return parsed1.pow(parsed2 as u32);
+}

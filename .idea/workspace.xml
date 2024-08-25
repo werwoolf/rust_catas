@@ -1,26 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="AutoImportSettings">
-    <option name="autoReloadType" value="SELECTIVE" />
+    <option name="autoReloadType" value="ALL" />
   </component>
   <component name="CargoProjects">
     <cargoProject FILE="$PROJECT_DIR$/Cargo.toml" />
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d1d15b70-4d62-4561-92d8-2678ad668aad" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/ultimate_rust_crash_course-main/exercise/c_simple_types/src/lib.rs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/rust_catas.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/rust_catas.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/codewars_catas/bouncing_ball.rs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/codewars_catas/connected_values.rs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/codewars_catas/mod.rs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Cargo.lock" beforeDir="false" afterPath="$PROJECT_DIR$/Cargo.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Cargo.toml" beforeDir="false" afterPath="$PROJECT_DIR$/Cargo.toml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/cofee_builder.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src/cofee_builder.rs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/likes.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src/likes.rs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/cofee_builder.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src/codewars_catas/cofee_builder.rs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/likes.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src/codewars_catas/likes.rs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src/main.rs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/move_zeros.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src/move_zeros.rs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/update_light.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src/update_light.rs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/move_zeros.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src/codewars_catas/move_zeros.rs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/update_light.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src/codewars_catas/update_light.rs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -43,9 +39,9 @@
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
-  <component name="ProjectColorInfo"><![CDATA[{
-  "associatedIndex": 8
-}]]></component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 8
+}</component>
   <component name="ProjectId" id="2LQA2YRg061B8eMCHjjnjLUgOMH" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
@@ -55,19 +51,28 @@
   "keyToString": {
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.rust.reset.selective.auto.import": "true",
     "WebServerToolWindowFactoryState": "false",
     "git-widget-placeholder": "master",
-    "last_opened_file_path": "/home/serhii/Downloads/intellij-rust-0.4.185.5086-222.zip",
+    "last_opened_file_path": "/home/serhii/Стільниця/my_projects/rust_catas",
+    "node.js.detected.package.eslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
     "org.rust.cargo.project.model.PROJECT_DISCOVERY": "true",
     "org.rust.disableDetachedFileInspection/home/serhii/Desktop/my-projects/rust_catas/ultimate_rust_crash_course-main/examples/hello/src/main.rs": "true",
     "org.rust.disableDetachedFileInspection/home/serhii/Desktop/my-projects/rust_catas/ultimate_rust_crash_course-main/exercise/a_variables/variables/src/main.rs": "true",
     "org.rust.disableDetachedFileInspection/home/serhii/Desktop/my-projects/rust_catas/ultimate_rust_crash_course-main/exercise/c_simple_types/src/main.rs": "true",
+    "org.rust.disableDetachedFileInspection/home/serhii/Стільниця/my_projects/rust_catas/src/codewars_catas/connected_values.rs": "true",
     "org.rust.hideNoCargoProjectNotifications/home/serhii/Desktop/my-projects/rust_catas/squre_numbers/main.rs": "true",
     "org.rust.hideToolchainNotifications": "true",
-    "settings.editor.selected.configurable": "language.rust.rustfmt"
+    "settings.editor.selected.configurable": "editing.templates"
   }
 }]]></component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/codewars_catas" />
+    </key>
+  </component>
   <component name="RustProjectSettings">
     <option name="runExternalLinterOnTheFly" value="true" />
     <option name="toolchainHomeDirectory" value="$USER_HOME$/.cargo/bin" />
@@ -85,6 +90,8 @@
       <option name="presentableId" value="Default" />
       <updated>1675792725728</updated>
       <workItem from="1695570950721" duration="806000" />
+      <workItem from="1724346144617" duration="2974000" />
+      <workItem from="1724429875287" duration="3294000" />
     </task>
     <servers />
   </component>
